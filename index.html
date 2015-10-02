@@ -40,14 +40,12 @@
 
               this.count = this.workDays[currentDay].count;
               this.finalCount = this.workDays[currentDay].final;
-              var freq = 300;
+              var freq = 600;
               var increment = this.finalCount / freq;
               console.log(increment);
               this.myInterval = $interval(function() {
                   (vm.count < vm.finalCount) ? (vm.count += increment) : vm.stopInterval();
-                  console.log(this.displayCount);
-              }, 1000);
-              this.displayCount = vm.count.toString().split('.')[0];
+              }, 500);
 
               this.stopInterval = function() {
                   $interval.cancel(vm.myInterval);
