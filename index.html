@@ -18,7 +18,7 @@
               var vm = this;
               this.scope = angular.element('body').scope();
               var currentDate = new Date();
-              // var currentDay = this.currentDate.getDate();
+              var currentDay = new Date().getDate();
               this.workDays = [];
               var day = 13;
               for (var i = 1; i < 6; i++) {
@@ -40,15 +40,16 @@
 
               this.count = this.workDays[currentDay].count;
               this.finalCount = this.workDays[currentDay].final;
-              var freq = 600;
-              var increment = this.finalCount / freq;
-              console.log(increment);
+              var fullTime = 129600; // seconds x 4 (9h = 540min = 32400sec)
+              var increment = this.finalCount / fullTime;
+
               this.myInterval = $interval(function() {
-                  (vm.count < vm.finalCount) ? (vm.count += increment) : vm.stopInterval();
-              }, 500);
+                  (vm.count < vm.finalCount) ? vm.count = parseInt((vm.count + increment), 0) : vm.stopInterval();
+              }, 250);
 
               this.stopInterval = function() {
                   $interval.cancel(vm.myInterval);
+                  vm.count = vm.finalCount;
               };
 
           };
