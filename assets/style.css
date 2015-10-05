@@ -344,6 +344,10 @@ body {
 }
 
 #counter1-wrap {
+    margin-top: -7px!important;
+    left: 20%!important;
+}
+#counter21-wrap {
     margin-top: -10px!important;
     left: 20%!important;
 }

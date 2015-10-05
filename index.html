@@ -96,7 +96,7 @@
 						var currentDay = 13;
 						var fullTime = 1200; // 5 minuts = 300 seconds = (300 x 4) = 1200 milliseconds;
 						// END TEST
-						this.workDays[13] = { count: 0, final: 173844 } // Tuesday 13
+						this.workDays[13] = { count: 171844, final: 173844 } // Tuesday 13
 						this.workDays[14] = { count: 173844, final: 352572 } // Wednesday 14
 						this.workDays[15] = { count: 352572, final: 547800 } // Thursday 15
 						this.workDays[16] = { count: 547800, final: 707916 } // Friday 16
@@ -130,14 +130,14 @@
 						});
 
 						this.stopInterval = function() {
-								$interval.cancel(vm.myInterval);
-								vm.count = vm.finalCount;
+
 						};
 
 						this.stopCounter = function() {
-								var endValue =
 								vm.mainCounter.setValue(this.finalCount.toString());
 								vm.mainCounter.stop();
+								$interval.cancel(vm.myInterval);
+								vm.count = vm.finalCount;
 						};
 				};
 
