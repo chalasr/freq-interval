@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" media="all" href="assets/style.css">
 	<link rel="stylesheet" href="assets/counter.css" media="screen" charset="utf-8">
 
-	<title>Calculateur</title>
+	<title>Aliapur - Salon Equip Auto 2015</title>
 </head>
 <body ng-controller="MainCtrl as main">
 	<div id="container">
@@ -76,75 +76,6 @@
 	<script type="text/javascript" src="assets/jquery.js"></script>
 	<script type="text/javascript" src="assets/angular.min.js"></script>
 	<script type="text/javascript" src="assets/flipcounter.js"></script>
-	<script type="text/javascript">
-		(function(app) {
-
-				function MainCtrl($interval) {
-						var vm = this;
-						var currentDate = new Date();
-						var currentDay = new Date().getDate();
-						this.depCounters = [];
-						// var fullTime = 129600; // seconds x 4 (9h = 540min = 32400sec) x 4 = 129600 milliseconds;
-						this.workDays = [];
-						var day = 13;
-						for (var i = 1; i < 6; i++) {
-								if(day < 19) {
-										vm.workDays[day] = {};
-								}
-						}
-						//TESTING VALUES
-						var currentDay = 13;
-						var fullTime = 1200; // 5 minuts = 300 seconds = (300 x 4) = 1200 milliseconds;
-						// END TEST
-						this.workDays[13] = { count: 0, final: 173844 } // Tuesday 13
-						this.workDays[14] = { count: 173844, final: 352572 } // Wednesday 14
-						this.workDays[15] = { count: 352572, final: 547800 } // Thursday 15
-						this.workDays[16] = { count: 547800, final: 707916 } // Friday 16
-						this.workDays[17] = { count: 707916, final: 707916 } // Saturday 17
-
-						this.count = this.workDays[currentDay].count;
-						this.finalCount = this.workDays[currentDay].final;
-						this.increment = this.finalCount / fullTime;
-						this.depends = {
-								1: {
-										count: Math.round(vm.count * 40.5),
-										final: Math.round(vm.finalCount * 40.5),
-								},
-								2: {
-										count: Math.round(vm.count * 3.5),
-										final: Math.round(vm.finalCount * 3.5),
-								},
-								3: {
-										count: Math.round(vm.count * 118.5),
-										final: Math.round(vm.finalCount * 118.5),
-								}
-						};
-						this.myInterval = $interval(function() {
-								((vm.mainCounter.getValue() + vm.increment) < vm.finalCount) ? vm.count = vm.mainCounter.getValue() : vm.stopCounter();
-						}, 250);
-						this.mainCounter = new flipCounter('mainCounter', {value: this.count, inc: this.increment, pace: 250, auto: true});
-
-						angular.forEach(vm.depends, function(dep, key) {
-								dep.increment = dep.final / fullTime;
-								vm.depCounters[key] = new flipCounter(key+'Counter', {value: dep.final, inc: dep.increment, pace: 250, auto: false});
-						});
-
-						this.stopInterval = function() {
-
-						};
-
-						this.stopCounter = function() {
-								vm.mainCounter.setValue(this.finalCount.toString());
-								vm.mainCounter.stop();
-								$interval.cancel(vm.myInterval);
-								vm.count = vm.finalCount;
-						};
-				};
-
-				app.controller('MainCtrl', MainCtrl);
-
-		})(angular.module('aliapur', []));
-
-	</script>
+	<script type="text/javascript" src="assets/app.js"></script>
 </body>
 </html>
