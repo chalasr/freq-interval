@@ -237,7 +237,7 @@ var flipCounter = function(d, options) {
           '</div></div>'+
           '</li>';
       }
-      html += '<li class="digit-delimiter">.</li>'
+      html += '<li class="digit-delimiter">&nbsp;</li>'
     }
 
     var count = digitsNew.length;
@@ -255,7 +255,7 @@ var flipCounter = function(d, options) {
         '</div></div>'+
         '</li>';
       if (bit !== count && bit % 3 === 0){
-        html += '<li class="digit-delimiter">,</li>';
+        html += '<li class="digit-delimiter">&nbsp;</li>';
       }
       bit++;
     }
