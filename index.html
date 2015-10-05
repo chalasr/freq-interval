@@ -2,21 +2,19 @@
 <html ng-app="aliapur">
   <head>
     <meta charset="utf-8">
-    <title>ALIAPUR Jour 1</title>
+    <title>ALIAPUR</title>
   </head>
   <body ng-controller="MainCtrl as main">
     <div id="main">
       {{ main.count }} - {{ main.getDatetime | date:'HH:mm:ss' }}
     </div>
-    <script type="text/javascript" src="http://cdn.chalasdev.fr/js/jquery.js"></script>
-    <script type="text/javascript" src="http://cdn.chalasdev.fr/js/angular.min.js"></script>
-    <script type="text/javascript" src="http://cdn.chalasdev.fr/js/angular-route.min.js"></script>
+    <script type="text/javascript" src="assets/jquery.js"></script>
+    <script type="text/javascript" src="assets/angular.min.js"></script>
     <script type="text/javascript">
       (function(app){
 
           function MainCtrl($interval){
               var vm = this;
-              this.scope = angular.element('body').scope();
               var currentDate = new Date();
               var currentDay = new Date().getDate();
               this.workDays = [];
@@ -31,18 +29,14 @@
               this.workDays[15] = { count: 352572, final: 547800 } // Thursday 15
               this.workDays[16] = { count: 547800, final: 707916 } // Friday 16
               this.workDays[17] = { count: 707916, final: 707916 } // Saturday 17
-              //TESTING DAY
               var currentDay = 13;
-              //
               vm.init = $interval(function() {
                   vm.getDatetime = new Date();
               }, 1000 );
-
               this.count = this.workDays[currentDay].count;
               this.finalCount = this.workDays[currentDay].final;
               var fullTime = 129600; // seconds x 4 (9h = 540min = 32400sec)
               var increment = this.finalCount / fullTime;
-
               this.myInterval = $interval(function() {
                   (vm.count < vm.finalCount) ? vm.count = parseInt((vm.count + increment), 0) : vm.stopInterval();
               }, 250);
@@ -56,8 +50,9 @@
 
           app.controller('MainCtrl', MainCtrl);
 
-      })(angular.module('aliapur', ['ngRoute']));
+      })(angular.module('aliapur', []));
 
     </script>
+
   </body>
 </html>
