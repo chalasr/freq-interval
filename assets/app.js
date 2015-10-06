@@ -40,10 +40,10 @@
     });
     vm.depends.forEach(function(dep, key) {
       dep.increment = dep.final / vm.duration;
-      vm.depCounters[key] = new flipCounter(key + 'Counter', {
-        value: dep.count,
-        inc: dep.increment,
-        pace: 250
+      vm.depCounters[key] = new flipCounter('counter' + key, {
+          value: dep.count,
+          inc: dep.increment,
+          pace: 250
       });
     });
     this.stopCounters = function() {

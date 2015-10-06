@@ -21,6 +21,8 @@ h1 {
   font-size: 60px;
   /* Web fonts look bad in Chrome even with -webkit-font-smoothing, so this is a cheap way to soften the jaggies */
 }
+
+#container{zoom:125%;}
 #style-switcher {
   *zoom: 1;
   list-style-type: none;
