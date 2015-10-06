@@ -8,7 +8,6 @@ var MainCtrl = (function () {
   function MainCtrl(options) {
     _classCallCheck(this, MainCtrl);
 
-    var vm = this;
     this.currentDay = options.currentDay;
     this.workDays = options.workDays;
     this.depends = [];
@@ -18,50 +17,59 @@ var MainCtrl = (function () {
     this.finalCount = this.workDays[this.currentDay].final;
     this.increment = this.finalCount / this.duration;
     this.depends[1] = {
-      count: Math.round(vm.count * 40.5),
-      final: Math.round(vm.finalCount * 40.5)
+      count: Math.round(this.count * 40.5),
+      final: Math.round(this.finalCount * 40.5)
     };
     this.depends[2] = {
-      count: Math.round(vm.count * 3.5),
-      final: Math.round(vm.finalCount * 3.5)
+      count: Math.round(this.count * 3.5),
+      final: Math.round(this.finalCount * 3.5)
     };
     this.depends[3] = {
-      count: Math.round(vm.count * 118.5),
-      final: Math.round(vm.finalCount * 118.5)
+      count: Math.round(this.count * 118.5),
+      final: Math.round(this.finalCount * 118.5)
     };
-    this.mainCounter = new flipCounter('mainCounter', {
-      value: this.count,
-      inc: this.increment,
-      pace: 250
-    });
-    this.depends.forEach(function (dep, key) {
-      dep.increment = dep.final / vm.duration;
-      vm.depCounters[key] = new flipCounter('counter' + key, {
-        value: dep.count,
-        inc: dep.increment,
-        pace: 250
-      });
-    });
-    this.myInterval = setInterval(function () {
-      if (vm.mainCounter.getValue() + vm.increment < vm.finalCount) {
-        vm.count = vm.mainCounter.getValue();
-      } else {
-        vm.stopCounters();
-      }
-    }, 250);
   }
 
   _createClass(MainCtrl, [{
+    key: 'startCounters',
+    value: function startCounters() {
+      var vm = this;
+      this.mainCounter = new flipCounter('mainCounter', {
+        value: this.count,
+        inc: this.increment,
+        pace: 250
+      });
+      this.depends.forEach(function (dep, key) {
+        dep.increment = dep.final / vm.duration;
+        vm.depCounters[key] = new flipCounter('counter' + key, {
+          value: dep.count,
+          inc: dep.increment,
+          pace: 250
+        });
+      });
+    }
+  }, {
     key: 'stopCounters',
     value: function stopCounters() {
-      vm.mainCounter.stop();
-      vm.mainCounter.setValue(this.finalCount);
-      angular.forEach(vm.depCounters, function (counter) {
+      this.mainCounter.stop();
+      this.mainCounter.setValue(this.finalCount);
+      this.depCounters.forEach(function (counter) {
         counter.stop();
         counter.setValue(counter.final);
       });
-      clearInterval(vm.myInterval);
-      vm.count = vm.finalCount;
+      clearInterval(this.myInterval);
+      this.count = this.finalCount;
+    }
+  }, {
+    key: 'myInterval',
+    value: function myInterval() {
+      setInterval(function () {
+        if (vm.mainCounter.getValue() + vm.increment < vm.finalCount) {
+          vm.count = vm.mainCounter.getValue();
+        } else {
+          vm.stopCounters();
+        }
+      }, 250);
     }
   }]);
 
@@ -70,7 +78,7 @@ var MainCtrl = (function () {
 
 ;
 
-new MainCtrl({
+var run = new MainCtrl({
   workDays: window.workDays,
   currentDay: 13
-});
+}).startCounters();

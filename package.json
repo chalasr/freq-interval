@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Aliapur incremented counter",
   "main": "Gulpfile.js",
+  "private": true,
   "directories": {
     "doc": "docs"
   },
