@@ -1,0 +1,361 @@
+@font-face {
+    font-family: 'futura-book';
+    src: url('fonts/futura-book.eot');
+    src: local('_'), url('fonts/futura-book.woff') format('woff'),
+    url('fonts/futura-book.ttf') format('truetype'),
+    url('fonts/futura-book.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'futura-heavy';
+    src: url('fonts/futura-heavy.eot');
+    src: local('_'), url('fonts/futura-heavy.woff') format('woff'),
+    url('fonts/futura-heavy.ttf') format('truetype'),
+    url('fonts/futura-heavy.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'futura-regular';
+    src: url('fonts/futura-regular.eot');
+    src: local('_'), url('fonts/futura-regular.woff') format('woff'),
+    url('fonts/futura-regular.ttf') format('truetype'),
+    url('fonts/futura-regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-boxt;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    height: 100%;
+    background-color: #fff;
+    max-width: 1520px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#header {
+    text-align: center;
+    padding: 50px 0 20px;
+}
+
+#header h2 {
+    border-bottom: 3px solid #e60d64;
+    color: #e60d64;
+    margin: 0;
+    font-family: 'futura-book';
+    font-size: 38px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.hTop {
+    margin: 20px auto 30px;
+}
+
+.hTop p {
+    color: #37939B;
+    margin: 0;
+    font-family: 'futura-book';
+    font-size: 38px;
+}
+
+.lspace {
+    margin: 0 250px 0 -40px;
+}
+
+.hBottom {
+    background-color: #E60E64;
+    color: #fff;
+    margin: 0 25px;
+    position: relative;
+}
+
+.hBottom p {
+    font-family: "futura-book";
+    font-size: 29px;
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+}
+
+.BottomTxt {
+    padding: 9px;
+}
+
+.hBottom img {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 23px;
+}
+
+#leftColum, #centerColum, #rightColum {
+    width: 33.333%;
+    float: left;
+    position: relative;
+}
+
+#leftColum, #centerColum {
+    position: relative;
+}
+
+#leftColum:before,
+#leftColum:after,
+#centerColum:before,
+#centerColum:after {
+    content: "";
+    display: block;
+    background: #E60E64;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+}
+
+#leftColum:before,
+#centerColum:before {
+    width: 45px;
+    height: 6px;
+    right: -22px;
+    margin-top: -3px;
+}
+
+#leftColum:after,
+#centerColum:after {
+    width: 6px;
+    height: 45px;
+    right: -3px;
+    margin-top: -22px;
+}
+
+#maincontent {
+    overflow: hidden;
+}
+
+#wrapp {
+    margin-top: 70px;
+}
+
+.wrapPlus img {
+    width: 58px;
+}
+
+.wrapPlus {
+    position: absolute;
+    top: 50%;
+    right: -10.6%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+}
+
+#leftColum {
+    background-color: #C1D72E;
+}
+
+.leftTxt p, .centerTxt p, .rightTxt p {
+    font-family: "futura-book";
+    font-size: 27px;
+    line-height: normal;
+    text-align: center;
+    margin: 0;
+}
+
+.txtBottom {
+    font-family: "futura-book";
+    font-size: 27px;
+    padding-top: 70px;
+    padding-left: 30px;
+    color: #E60E64;
+}
+
+.txtBottom .supcolor {
+    font-size: 9px;
+}
+
+.centerBottom {
+    font-family: "futura-book";
+    font-size: 27px;
+    color: #E60E64;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.centerBottom .cyles {
+    color: #000;
+    margin-right: 15px;
+}
+
+.centerBottom .lave {
+    color: #E60E64;
+}
+
+.centerBottom .supcolor {
+    font-size: 9px;
+}
+
+.centerBottom p {
+    font-family: "futura-book";
+    font-size: 32px;
+}
+
+.supcolor {
+    color: #000;
+    font-size: 9px;
+}
+
+.leftImg img {
+    position: absolute;
+    top: -70px;
+    z-index: 10;
+    left: 150px;
+    width: 66px;
+}
+
+.centerImg img {
+    position: absolute;
+    top: -60px;
+    z-index: 10;
+    left: 190px;
+    width: 77px;
+}
+
+.rightImg img {
+    position: absolute;
+    top: -35px;
+    z-index: 10;
+    left: 150px;
+    width: 145px;
+}
+
+.rightBottom {
+    color: #E60E64;
+    font-family: futura-book;
+    font-size: 27px;
+    padding-left: 336px;
+    padding-top: 26px;
+}
+
+.leftTxt, .centerTxt, .rightTxt {
+    height: 210px;
+    padding: 55px 40px 10px;
+}
+
+.rightTxt .txtTop sub {
+    font-size: 14px;
+}
+
+.voiture {
+    color: #E60E64;
+}
+
+#centerColum {
+    background-color: #60A5AC;
+}
+
+#rightColum {
+    background-color: #C1D72E;
+}
+
+#bottom {
+    margin: 15px 40px;
+}
+
+#detail p {
+    font-family: 'futura-book';
+    font-size: 20px;
+    color: #58585A;
+    margin: 0;
+    padding-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+#detail p:last-child {
+    padding-left: 0;
+}
+
+#detail p .supcolor {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#detail p.small {
+    padding-left: 12px;
+}
+
+.corner .top, .corner .bottom {
+    width: 90px;
+    height: 90px;
+    background: url("img/corner.svg") center transparent;
+    background-size: 90px auto;
+    position: absolute;
+}
+
+.corner .top {
+    top: 0;
+}
+
+.corner .left {
+    left: 0;
+}
+
+.corner .right {
+    right: 0;
+}
+
+.corner .bottom {
+    bottom: 0;
+}
+
+.left-corner .bottom {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.right-corner .top {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.right-corner .bottom {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#counter1-wrap {
+    margin-top: 1px;
+    left: 17%;
+    text-align: center!important;
+}
+#counter2-wrap {
+    margin-top: -1px;
+    left: 22%;
+    text-align: center!important;
+}
+#counter3-wrap {
+  margin-top: 3px;
+  left: 6%
+  text-align: center!important;
+}

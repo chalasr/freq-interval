@@ -1,58 +1,78 @@
 <!DOCTYPE html>
-<html ng-app="aliapur">
-  <head>
-    <meta charset="utf-8">
-    <title>ALIAPUR</title>
-  </head>
-  <body ng-controller="MainCtrl as main">
-    <div id="main">
-      {{ main.count }} - {{ main.getDatetime | date:'HH:mm:ss' }}
-    </div>
-    <script type="text/javascript" src="assets/jquery.js"></script>
-    <script type="text/javascript" src="assets/angular.min.js"></script>
-    <script type="text/javascript">
-      (function(app){
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.6, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/counter.css" media="screen" charset="utf-8">
+	<title>Aliapur - Salon Equip Auto 2015</title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h2><strong>CALCULATEUR</strong> ENVIRONNEMENTAL</h2>
+			<div class="hTop">
+				<div class="counter-wrapper">
+						<ul class="flip-counter small" id="mainCounter"></ul>
+				</div>
+				<p>Depuis le <strong>début du Salon Equip Auto 2015,</strong></p>
+				<p><span class="lspace"><strong>Aliapur a collecté</strong></span><span class="rspace"><strong>pneus usagés.</strong></span></p>
+			</div>
+			<div class="hBottom">
+				<img src="assets/img/arr2.svg" class="bgarrow">
+				<div class="BottomTxt">
+					<p>Ces pneus sont valorisés à parts égales en valorisation matière et en valorisation énergétique.</p>
+					<p>Ils permettent l’économie en temps réel de :</p>
+				</div>
+			</div>
+		</div>
 
-          function MainCtrl($interval){
-              var vm = this;
-              var currentDate = new Date();
-              var currentDay = new Date().getDate();
-              this.workDays = [];
-              var day = 13;
-              for (var i = 1; i < 6; i++) {
-                  if(day < 19) {
-                      vm.workDays[day] = {};
-                  }
-              }
-              this.workDays[13] = { count: 0, final: 173844 } // Tuesday 13
-              this.workDays[14] = { count: 173844, final: 352572 } // Wednesday 14
-              this.workDays[15] = { count: 352572, final: 547800 } // Thursday 15
-              this.workDays[16] = { count: 547800, final: 707916 } // Friday 16
-              this.workDays[17] = { count: 707916, final: 707916 } // Saturday 17
-              var currentDay = 13;
-              vm.init = $interval(function() {
-                  vm.getDatetime = new Date();
-              }, 1000 );
-              this.count = this.workDays[currentDay].count;
-              this.finalCount = this.workDays[currentDay].final;
-              var fullTime = 129600; // seconds x 4 (9h = 540min = 32400sec)
-              var increment = this.finalCount / fullTime;
-              this.myInterval = $interval(function() {
-                  (vm.count < vm.finalCount) ? vm.count = parseInt((vm.count + increment), 0) : vm.stopInterval();
-              }, 250);
-
-              this.stopInterval = function() {
-                  $interval.cancel(vm.myInterval);
-                  vm.count = vm.finalCount;
-              };
-
-          };
-
-          app.controller('MainCtrl', MainCtrl);
-
-      })(angular.module('aliapur', []));
-
-    </script>
-
-  </body>
+		<div id="maincontent">
+			<div id="wrapp">
+				<div id="leftColum">
+					<div class="leftImg"><img src="assets/img/s1.svg"></div>
+					<div class="leftTxt">
+						<p class="txtTop">la consommation électrique de</p>
+						<div class="counter-wrapper" id="counter1-wrap">
+								<ul class="flip-counter small" id="1Counter"></ul>
+						</div>
+						<div class="txtBottom">réfrigérateurs <sup class="supcolor">(1)</sup> pendant un an</div>
+					</div>
+				</div>
+				<div id="centerColum">
+					<div class="centerImg"><img src="assets/img/s2.svg"></div>
+					<div class="centerTxt">
+						<p class="txtTop">de la consommation d’eau de</p>
+						<div class="counter-wrapper" id="counter2-wrap">
+								<ul class="flip-counter small" id="2Counter"></ul>
+						</div>
+						<div class="centerBottom"><span class="cyles">cycles de</span><span class="lave">lave-linge <sup class="supcolor">(2)</sup></span></div>
+					</div>
+				</div>
+				<div id="rightColum">
+					<div class="rightImg"><img src="assets/img/s3.svg"></div>
+					<div class="rightTxt">
+						<p class="txtTop">l’économie de l’émission de <br>
+						CO <sub>2</sub> d’une <span class="voiture">voiture parcourant<span></p>
+							<div class="counter-wrapper" id="counter3-wrap">
+									<ul class="flip-counter small" id="3Counter"></ul>
+							</div>
+						<div class="rightBottom">kms <sup class="supcolor">(3)</sup></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="bottom">
+			<div id="detail">
+				<p class="big"><sup class="supcolor">(1) </sup>Réfrigérateur-congélateur de 235 litres utiles, classe A.</p>
+				<p class="big"><sup class="supcolor">(2) </sup>Lave-linge de 5kg classe A, 220 cycles de lavages standard par an, consommation d’eau répartie entre les programmes coton standard : 60°C pleine charge, 60°C demi-charge et 40°C demi-charge</p>
+				<p class="big"><sup class="supcolor">(3) </sup>Véhicule émettant 130 g. de CO par km (cible France 2010) pour 12 000 km annuels (moyenne parcourue par un automobiliste en Europe).</p>
+				<p style="font-style: italic;">Source : ACV du pneu usagé, PricewaterhouseCoopers.</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="assets/lib/flipcounter.js"></script>
+	<script type="text/javascript" src="assets/app.js"></script>
+</body>
 </html>
