@@ -5,13 +5,13 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var MainCtrl = (function () {
-  function MainCtrl(options) {
+  function MainCtrl(config) {
     _classCallCheck(this, MainCtrl);
 
-    this.currentDay = options.currentDay;
-    this.workDays = options.workDays;
     this.depends = [];
     this.depCounters = [];
+    this.workDays = config.workDays;
+    this.currentDay = new Date().getDate > 13 ? new Date().getDate() : 13;
     this.count = this.workDays[this.currentDay].count;
     this.duration = this.workDays[this.currentDay].duration;
     this.finalCount = this.workDays[this.currentDay].final;
@@ -78,7 +78,5 @@ var MainCtrl = (function () {
 
 ;
 
-var run = new MainCtrl({
-  workDays: window.workDays,
-  currentDay: 13
-}).startCounters();
+var params = new Config().parameters();
+var run = new MainCtrl({ workDays: params }).startCounters();

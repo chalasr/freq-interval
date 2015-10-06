@@ -1,10 +1,10 @@
 class MainCtrl {
 
-  constructor(options) {
-    this.currentDay = options.currentDay;
-    this.workDays = options.workDays;
+  constructor(config) {
     this.depends = [];
     this.depCounters = [];
+    this.workDays = config.workDays;
+    this.currentDay = (new Date).getDate > 13 ? (new Date).getDate() : 13 ;
     this.count = this.workDays[this.currentDay].count;
     this.duration = this.workDays[this.currentDay].duration;
     this.finalCount = this.workDays[this.currentDay].final;
@@ -63,7 +63,5 @@ class MainCtrl {
 
 };
 
-let run = new MainCtrl({
-  workDays: window.workDays,
-  currentDay: 13,
-}).startCounters();
+let params = new Config().getParameters();
+let run = new MainCtrl({ workDays: params }).startCounters();
