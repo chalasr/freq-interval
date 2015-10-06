@@ -78,5 +78,5 @@ var MainCtrl = (function () {
 
 ;
 
-var params = new Config().parameters();
+var params = new Config().getParameters();
 var run = new MainCtrl({ workDays: params }).startCounters();
