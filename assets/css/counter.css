@@ -91,12 +91,7 @@ p.info {
   text-align: center;
   margin-top: 20px;
 }
-.counter-wrapper {
-  float: right;
-  position: absolute;
-  margin-top: 43px;
-  left: 41%;
-}
+
 .flip-counter {
   list-style-type: none;
 }
@@ -127,8 +122,8 @@ p.info {
   margin-left: 0;
 }
 .flip-counter.default .digit span {
-  position: absolute;
-  left: 0;
+  /*position: absolute;
+  left: 0;*/
   height: 45px;
   width: 60px;
   overflow: hidden;
@@ -581,4 +576,56 @@ p.info {
   color: black;
   text-indent: 6.66666667px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.flip-counter-top{
+  display: inline-block;
+}
+.container-tc {
+    color: #37939B;
+    margin: 0;
+    font-family: 'futura-book';
+    font-size: 38px;
+}
+.container-tc ul{
+  margin:0;
+  padding:0px 10px 0px 10px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.counter-bot-1, .counter-bot-2, .counter-bot-3 {
+  display: inline-block;
+}
+
+.counter1-wrap ul{
+  margin:0;
+  padding:0 !important;
+}
+
+.txtBottom, .centerBottom {
+  display: inline;
+}
+
+.lave{
+  color:#E60E64;
+}
+
+.container-right-tc{
+display: table;
+margin: 0 auto;
+}
+.container-counter-bot-3{
+  float:left;
+}
+.km-tc{
+  float:left;
+    color: #E60E64;
+    font-family: 'futura-book';
+    font-size: 27px;
+    padding-top:25px;
+    padding-left: 10px;
+}
+
+.color-tc{
+  color: #E60E64;
 }

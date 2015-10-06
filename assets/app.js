@@ -2,37 +2,18 @@
   var MainCtrl;
   MainCtrl = function() {
     var currentDay;
-    var currentDay, duration, vm;
+    var currentDay, vm;
     vm = MainCtrl.prototype = this;
     currentDay = (new Date).getDate();
-    duration = 129600;
     currentDay = 13;
     this.workDays = [];
     this.depends = [];
     this.depCounters = [];
-    this.workDays[13] = {
-      count: 0,
-      final: 173844
-    };
-    this.workDays[14] = {
-      count: 173844,
-      final: 352572
-    };
-    this.workDays[15] = {
-      count: 352572,
-      final: 547800
-    };
-    this.workDays[16] = {
-      count: 547800,
-      final: 707916
-    };
-    this.workDays[17] = {
-      count: 707916,
-      final: 707916
-    };
+    this.workDays = window.workDays;
     this.count = this.workDays[currentDay].count;
+    this.duration = this.workDays[currentDay].duration;
     this.finalCount = this.workDays[currentDay].final;
-    this.increment = this.finalCount / duration;
+    this.increment = this.finalCount / this.duration;
     this.depends[1] = {
       count: Math.round(vm.count * 40.5),
       final: Math.round(vm.finalCount * 40.5)
@@ -58,7 +39,7 @@
       pace: 250
     });
     vm.depends.forEach(function(dep, key) {
-      dep.increment = dep.final / duration;
+      dep.increment = dep.final / vm.duration;
       vm.depCounters[key] = new flipCounter(key + 'Counter', {
         value: dep.count,
         inc: dep.increment,

@@ -13,11 +13,10 @@
 		<div id="header">
 			<h2><strong>CALCULATEUR</strong> ENVIRONNEMENTAL</h2>
 			<div class="hTop">
-				<div class="counter-wrapper">
-						<ul class="flip-counter small" id="mainCounter"></ul>
-				</div>
+
 				<p>Depuis le <strong>début du Salon Equip Auto 2015,</strong></p>
-				<p><span class="lspace"><strong>Aliapur a collecté</strong></span><span class="rspace"><strong>pneus usagés.</strong></span></p>
+				<div class="container-tc"><span><strong>Aliapur a collecté</strong></span><ul class="flip-counter small flip-counter-top" id="mainCounter"></ul><span><strong>pneus usagés.</strong></span>
+				</div>
 			</div>
 			<div class="hBottom">
 				<img src="assets/img/arr2.svg" class="bgarrow">
@@ -35,9 +34,9 @@
 					<div class="leftTxt">
 						<p class="txtTop">la consommation électrique de</p>
 						<div class="counter-wrapper" id="counter1-wrap">
-								<ul class="flip-counter small" id="1Counter"></ul>
+								<ul class="flip-counter small counter-bot-1" id="1Counter" style="padding-left:0;"></ul>
 						</div>
-						<div class="txtBottom">réfrigérateurs <sup class="supcolor">(1)</sup> pendant un an</div>
+						<p class="color-tc">réfrigérateurs <sup class="supcolor">(1)</sup> pendant un an</p>
 					</div>
 				</div>
 				<div id="centerColum">
@@ -45,9 +44,9 @@
 					<div class="centerTxt">
 						<p class="txtTop">de la consommation d’eau de</p>
 						<div class="counter-wrapper" id="counter2-wrap">
-								<ul class="flip-counter small" id="2Counter"></ul>
+								<ul class="flip-counter small counter-bot-2" id="2Counter" style="padding-left:0;"></ul>
 						</div>
-						<div class="centerBottom"><span class="cyles">cycles de</span><span class="lave">lave-linge <sup class="supcolor">(2)</sup></span></div>
+						<p><span class="cyles">cycles de</span> <span class="lave">lave-linge <sup class="supcolor">(2)</sup></span></p>
 					</div>
 				</div>
 				<div id="rightColum">
@@ -55,10 +54,11 @@
 					<div class="rightTxt">
 						<p class="txtTop">l’économie de l’émission de <br>
 						CO <sub>2</sub> d’une <span class="voiture">voiture parcourant<span></p>
-							<div class="counter-wrapper" id="counter3-wrap">
-									<ul class="flip-counter small" id="3Counter"></ul>
+							<div class="container-right-tc"><div class="counter-wrapper container-counter-bot-3" id="counter3-wrap">
+									<ul class="flip-counter small counter-bot-3" id="3Counter" style="padding-left:0;"></ul>
 							</div>
-						<div class="rightBottom">kms <sup class="supcolor">(3)</sup></div>
+						<div class="km-tc">kms <sup class="supcolor">(3)</sup></div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -66,13 +66,14 @@
 		<div id="bottom">
 			<div id="detail">
 				<p class="big"><sup class="supcolor">(1) </sup>Réfrigérateur-congélateur de 235 litres utiles, classe A.</p>
-				<p class="big"><sup class="supcolor">(2) </sup>Lave-linge de 5kg classe A, 220 cycles de lavages standard par an, consommation d’eau répartie entre les programmes coton standard : 60°C pleine charge, 60°C demi-charge et 40°C demi-charge</p>
-				<p class="big"><sup class="supcolor">(3) </sup>Véhicule émettant 130 g. de CO par km (cible France 2010) pour 12 000 km annuels (moyenne parcourue par un automobiliste en Europe).</p>
+				<p class="big"><sup class="supcolor">(2) </sup>Lave-linge de 5kg classe A, 220 cycles de lavages standard par an, consommation d’eau répartie entre les programmes coton standard : 60°C pleine charge, 60°C demi-charge et 40°C demi-charge</p>
+				<p class="big"><sup class="supcolor">(3) </sup>Véhicule émettant 130 g. de CO par km (cible France 2010) pour 12 000 km annuels (moyenne parcourue par un automobiliste en Europe).</p>
 				<p style="font-style: italic;">Source : ACV du pneu usagé, PricewaterhouseCoopers.</p>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="assets/lib/flipcounter.js"></script>
+	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript" src="assets/app.js"></script>
 </body>
 </html>
