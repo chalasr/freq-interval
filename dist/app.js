@@ -31,8 +31,8 @@ var MainCtrl = (function () {
   }
 
   _createClass(MainCtrl, [{
-    key: 'startCounters',
-    value: function startCounters() {
+    key: 'init',
+    value: function init() {
       var vm = this;
       this.mainCounter = new flipCounter('mainCounter', {
         value: this.count,
@@ -47,10 +47,18 @@ var MainCtrl = (function () {
           pace: 250
         });
       });
+      this.myInterval = setInterval(function () {
+        console.log('unfinished');
+        if (vm.mainCounter.getValue() + vm.increment < vm.finalCount) {
+          vm.count = vm.mainCounter.getValue();
+        } else {
+          vm.stop();
+        }
+      }, 250);
     }
   }, {
-    key: 'stopCounters',
-    value: function stopCounters() {
+    key: 'stop',
+    value: function stop() {
       this.mainCounter.stop();
       this.mainCounter.setValue(this.finalCount);
       this.depCounters.forEach(function (counter) {
@@ -60,17 +68,6 @@ var MainCtrl = (function () {
       clearInterval(this.myInterval);
       this.count = this.finalCount;
     }
-  }, {
-    key: 'myInterval',
-    value: function myInterval() {
-      setInterval(function () {
-        if (vm.mainCounter.getValue() + vm.increment < vm.finalCount) {
-          vm.count = vm.mainCounter.getValue();
-        } else {
-          vm.stopCounters();
-        }
-      }, 250);
-    }
   }]);
 
   return MainCtrl;
@@ -79,4 +76,5 @@ var MainCtrl = (function () {
 ;
 
 var params = new Config().getParameters();
-var run = new MainCtrl({ workDays: params }).startCounters();
+var main = new MainCtrl({ workDays: params });
+main.init();

@@ -10,7 +10,7 @@ var Config = (function () {
 
     this.workDays = [];
     this.workDays[13] = {
-      count: 0,
+      count: 173830,
       final: 173844,
       duration: 129600
     };

@@ -23,7 +23,7 @@ class MainCtrl {
     };
   };
 
-  startCounters() {
+  init() {
     var vm = this;
     this.mainCounter = new flipCounter('mainCounter', {
       value: this.count,
@@ -38,9 +38,17 @@ class MainCtrl {
           pace: 250
       });
     });
+    this.myInterval = setInterval(function() {
+        console.log('unfinished')
+        if((vm.mainCounter.getValue() + vm.increment) < vm.finalCount) {
+          vm.count = vm.mainCounter.getValue();
+        } else {
+          vm.stop();
+        }
+    }, 250);
   };
 
-  stopCounters() {
+  stop() {
     this.mainCounter.stop();
     this.mainCounter.setValue(this.finalCount);
     this.depCounters.forEach(counter => {
@@ -51,17 +59,9 @@ class MainCtrl {
     this.count = this.finalCount;
   };
 
-  myInterval() {
-    setInterval(function() {
-      if ((vm.mainCounter.getValue() + vm.increment) < vm.finalCount) {
-        vm.count = vm.mainCounter.getValue();
-      } else {
-        vm.stopCounters();
-      }
-    }, 250);
-  };
-
 };
 
+
 let params = new Config().getParameters();
-let run = new MainCtrl({ workDays: params }).startCounters();
+let main = new MainCtrl({ workDays: params });
+main.init();
