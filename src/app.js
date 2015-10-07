@@ -33,9 +33,9 @@ class MainCtrl {
     this.depends.forEach((dep, key) => {
       dep.increment = dep.final / vm.duration;
       vm.depCounters[key] = new flipCounter('counter' + key, {
-          value: dep.count,
-          inc: dep.increment,
-          pace: 250
+        value: dep.count,
+        inc: dep.increment,
+        pace: 250
       });
     });
     this.myInterval = setInterval(function() {
