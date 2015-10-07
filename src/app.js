@@ -56,7 +56,6 @@ class MainCtrl {
 
 };
 
-
 let params = new Config().getParameters();
 let main = new MainCtrl({ workDays: params });
 main.init();
