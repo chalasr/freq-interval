@@ -39,12 +39,7 @@ class MainCtrl {
       });
     });
     this.myInterval = setInterval(function() {
-        console.log('unfinished')
-        if((vm.mainCounter.getValue() + vm.increment) < vm.finalCount) {
-          vm.count = vm.mainCounter.getValue();
-        } else {
-          vm.stop();
-        }
+      ((vm.mainCounter.getValue() + vm.increment) < vm.finalCount) ? vm.count = vm.mainCounter.getValue() : vm.stop();
     }, 250);
   };
 
